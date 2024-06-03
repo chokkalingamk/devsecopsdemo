@@ -1,12 +1,14 @@
-FROM registry.access.redhat.com/ubi8/ubi-minimal:8.5
+#TODO: Change base image as per the platform
+FROM openjdk:17-alpine
+ARG HOME_USER=spark
+ARG BUILD_PATH=/home/$HOME_USER/app/release
+RUN mkdir -p $BUILD_PATH
+WORKDIR $BUILD_PATH
 
-LABEL BASE_IMAGE="registry.access.redhat.com/ubi8/ubi-minimal:8.5"
-LABEL JAVA_VERSION="11"
-
-RUN microdnf install --nodocs java-11-openjdk-headless && microdnf clean all
-
-WORKDIR /work/
-COPY target/*.jar /work/application.jar
-
+#TODO: Modify the source artifact path
+# COPY target/hello-maven-1.0-SNAPSHOT.jar app.jar
+COPY target/hello-maven-1.0.0.jar app.jar
 EXPOSE 8080
-CMD ["java", "-jar", "application.jar"]
+
+#TODO: Modify the entrypoint as per the platform
+ENTRYPOINT ["java","-jar","app.jar"]
