@@ -13,7 +13,7 @@ imagePullSecrets:
   # ref: https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod
   #
   # This uses credentials from secret "myRegistryKeySecretName".
-  - name: qkjavaappdemo-secret
+  - name: devsecjavaappdemo-secret
 service:
   port: 8080
 
