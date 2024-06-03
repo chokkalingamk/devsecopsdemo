@@ -7,13 +7,13 @@ image:
   repository: ckdevsecops.azurecr.io/devsecjavaappdemo
   tag: latest
 
-imagePullSecrets:
-  # Optionally specify an array of imagePullSecrets.
-  # Secrets must be manually created in the namespace.
-  # ref: https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod
-  #
-  # This uses credentials from secret "myRegistryKeySecretName".
-  - name: devsecjavaappdemo-secret
+# imagePullSecrets:
+#   # Optionally specify an array of imagePullSecrets.
+#   # Secrets must be manually created in the namespace.
+#   # ref: https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod
+#   #
+#   # This uses credentials from secret "myRegistryKeySecretName".
+#   - name: devsecjavaappdemo-secret
 service:
   port: 8080
 
