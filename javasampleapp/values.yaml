@@ -4,7 +4,7 @@
 fullnameOverride: javasampleapp
 replicaCount: 1
 image:
-  repository: ecrinsights.azurecr.io/qkjavaappdemo
+  repository: ckdevsecops.azurecr.io/devsecjavaappdemo
   tag: latest
 
 imagePullSecrets:
