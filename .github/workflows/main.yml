@@ -12,9 +12,9 @@ name: Build and deploy to Azure Kubernetes Service
 env:
   AZURE_CONTAINER_REGISTRY: ecrinsights # set this to the name of your container registry
   PROJECT_NAME: qkinsightsjava              # set this to your project's name
-  RESOURCE_GROUP: App_insights_AKS_ck          # set this to the resource group containing your AKS cluster
-  CLUSTER_NAME: appinsightsaks              # set this to the name of your AKS cluster
-  ACR_REGISTRY_URL: ecrinsights.azurecr.io              # set this to the URL of your registry
+  RESOURCE_GROUP: Test_cluster          # set this to the resource group containing your AKS cluster
+  CLUSTER_NAME: devsecopscluster              # set this to the name of your AKS cluster
+  ACR_REGISTRY_URL: ckdevsecops.azurecr.io             # set this to the URL of your registry
   CHART_PATH: "./javasampleapp"
   CHART_OVERRIDE_PATH: "./javasampleapp/values.yaml"
 #   # If you bake using helm:
@@ -73,7 +73,7 @@ jobs:
         container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
         secret-name: 'devsecjavaappdemo-secret'
 
-    - name: App_insights_docker deployment
+    - name: devsecops_docker deployment
       uses: azure/k8s-bake@v2
       with:
         renderEngine: "helm"
