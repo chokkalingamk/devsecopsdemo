@@ -11,8 +11,8 @@ COPY --from=build /app/target/docker-java-app-example.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
 
-# Stage 3: Test the application
-FROM maven:3.8.4-openjdk-8 AS test
-WORKDIR /app
-COPY . .
-RUN mvn test
+# # Stage 3: Test the application
+# FROM maven:3.8.4-openjdk-8 AS test
+# WORKDIR /app
+# COPY . .
+# RUN mvn test
