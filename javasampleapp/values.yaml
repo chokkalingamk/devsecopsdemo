@@ -23,7 +23,7 @@ ingress:
   # annotations:
   #   kubernetes.io/ingress.class: addon-http-application-routing
   path: /
-  hostname: testjavaapp.techgigcloud.com
+  hostname: testjavaapp.katrumaghiz.xyz
 
 secrets: {}
   # Optionally specify a set of secret objects whose values
