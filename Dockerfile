@@ -7,7 +7,7 @@ WORKDIR $BUILD_PATH
 
 #TODO: Modify the source artifact path
 # COPY target/hello-maven-1.0-SNAPSHOT.jar app.jar
-COPY target/hello-maven-1.0.0.jar app.jar
+COPY hello-maven-1.0.0.jar app.jar
 EXPOSE 8080
 
 #TODO: Modify the entrypoint as per the platform
