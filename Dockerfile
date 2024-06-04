@@ -1,14 +1,18 @@
-#TODO: Change base image as per the platform
-FROM openjdk:17-alpine
-ARG HOME_USER=spark
-ARG BUILD_PATH=/home/$HOME_USER/app/release
-RUN mkdir -p $BUILD_PATH
-WORKDIR $BUILD_PATH
+# Use an official OpenJDK runtime as a parent image
+FROM openjdk:8-jre-alpine
 
-#TODO: Modify the source artifact path
-# COPY target/hello-maven-1.0-SNAPSHOT.jar app.jar
-COPY hello-maven-1.0.0.jar app.jar
+# set shell to bash
+# source: https://stackoverflow.com/a/40944512/3128926
+RUN apk update && apk add bash
+
+# Set the working directory to /app
+WORKDIR /app
+
+# Copy the fat jar into the container at /app
+COPY /target/docker-java-app-example.jar /app
+
+# Make port 8080 available to the world outside this container
 EXPOSE 8080
 
-#TODO: Modify the entrypoint as per the platform
-ENTRYPOINT ["java","-jar","app.jar"]
+# Run jar file when the container launches
+CMD ["java", "-jar", "docker-java-app-example.jar"]
