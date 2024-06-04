@@ -7,6 +7,6 @@ RUN mvn clean package -DskipTests
 # Stage 2: Create the runtime image
 FROM openjdk:8-jre-alpine
 WORKDIR /app
-COPY --from=build /app/target/docker-java-app-example.jar ./
+COPY --from=build /app/target/hello-maven-1.0.0.jar app.jar
 EXPOSE 8080
-CMD ["java", "-jar", "docker-java-app-example.jar"]
+CMD ["java", "-jar", "app.jar"]
