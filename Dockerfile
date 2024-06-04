@@ -6,7 +6,6 @@ RUN mvn clean package -DskipTests
 
 # Stage 2: Create the runtime image
 FROM openjdk:8-jre
-RUN apk update && apk add --no-cache bash
 WORKDIR /app
 COPY --from=build /app/target/docker-java-app-example.jar app.jar
 EXPOSE 8080
